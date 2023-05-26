@@ -42,6 +42,28 @@ Cryptography is a method of protecting information and communications through th
   - Most Websites use 128 bit but stuff to stay encrypted for sure for 30+years uses 256 bit AES
 
 
+### DES Encryption
+
+DES (Data Encryption Standard) is a symmetric encryption algorithm that operates on fixed-size blocks of data, typically 64 bits. Here's an overview of how DES encryption works:
+
+1. Key Generation: A 64-bit encryption key is chosen. However, only 56 bits of the key are used directly, as the remaining 8 bits are used for parity checking. In the case of DES, the key is typically derived from a user-supplied password using a key derivation algorithm.
+
+2. Key Expansion: The 56-bit key is expanded into 16 separate 48-bit subkeys, one for each round of encryption. This expansion involves a combination of permutation and shifting operations to generate the subkeys.
+
+3. Initial Permutation (IP): The input data block is subjected to an initial permutation that rearranges the bits in a specific order.
+
+4. Feistel Network: DES employs a Feistel network structure, which means that the encryption process is divided into multiple rounds (usually 16 rounds in the case of DES). In each round, the data block is divided into two halves (left and right halves).
+
+5. Round Function: The round function operates on the right half of the data using the current round's subkey. It involves a combination of expansion, XOR, substitution, and permutation operations. The purpose of the round function is to introduce confusion and diffusion in the data, making it harder to analyze and reverse-engineer.
+
+6. Swap: After each round, the left and right halves of the data block are swapped.
+
+7. Final Permutation (FP): After all the rounds are completed, a final permutation is applied to the data block, which is the inverse of the initial permutation. This permutation ensures that the output data is in a different order than the original input.
+
+8. Output: The resulting permuted block is the encrypted ciphertext.
+
+It's important to note that DES has been replaced by more secure encryption algorithms such as AES (Advanced Encryption Standard) due to advances in computing power and potential vulnerabilities in DES. However, DES remains relevant in certain legacy systems and applications.
+
 ### 3DES Encryption
 
 3DES (Triple Data Encryption Standard) is a symmetric encryption algorithm that is derived from the original Data Encryption Standard (DES) algorithm. It is a block cipher that operates on blocks of data and uses a combination of symmetric key operations to provide encryption and decryption.
