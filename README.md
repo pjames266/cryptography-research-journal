@@ -8,13 +8,6 @@ Cryptography is a method of protecting information and communications through th
 - Same key is used for both encryption and decryption
 - Enigma
 - Caesar Cipher
-### Diffie-Hellman Key Exchange (shared key generation)
-  - Works using Mathmatical one way functions
-  - B^x Mod(M) = R
-  - x is kept as some secret key for each user
-  - B and M are constant between them
-  - The R values calculated by each user is sent to the other
-  - Raising this received value to the power of their own x creates the same shared key as (B^y mod(M))^x = (B^x mod(M))^y = **B^xy mod(M)** <- shared key
 
 ### Advanced Encryption Standard (AES)
   - National Institute of Standards and Technology (NIST) in 2001.
@@ -58,6 +51,16 @@ Cryptography is a method of protecting information and communications through th
   - used by HTTPS and SSH
   - When data is sent it is encrypted with their public key so only they can decrypt it  
 
+### Diffie-Hellman Key Exchange
+  - Works using Mathmatical one way functions
+  - B^x Mod(M) = R
+  - x is kept as some secret key for each user
+  - B and M are constant between them
+  - The R values calculated by each user is sent to the other
+  - Raising this received value to the power of their own x creates the same shared key as (B^y mod(M))^x = (B^x mod(M))^y = **B^xy mod(M)** <- shared key
+  - Secret shared key used for Symmetric Encryption
+  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Public_key_shared_secret.svg/375px-Public_key_shared_secret.svg.png)
+
 
 ## SSL/TLS Protocols
 
@@ -80,4 +83,6 @@ Both the client and server are now using HTTPS (SSL/TLS + HTTP) for their commun
 ![](https://thumbs.dreamstime.com/b/internet-security-concept-ssl-https-lock-symbol-computer-browser-laptop-screen-151635340.jpg)
 
 Once you leave the website, those keys are discarded. On your next visit, a new handshake is negotiated, and a new set of keys are generated.
+
+Depending on the version of TLS/SSL different symmetric and asymmetric algorithms can be used. Some TLS versions can use RSA for its key exchange and handshake while other versions use Diffie-Hellman. Versions of TLS also use AES or 3DES for its symmetric encryption bulk data transfers.
 
