@@ -36,11 +36,31 @@ Cryptography is a method of protecting information and communications through th
   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/AES_%28Rijndael%29_Round_Function.png/375px-AES_%28Rijndael%29_Round_Function.png)
 #### Round Function Visulization
 
-
   - Easily reversible with knowledge of key
   - [Video](https://www.youtube.com/watch?v=O4xNJsjtN6E)
   - Quantum Resistant because no public key
   - Most Websites use 128 bit but stuff to stay encrypted for sure for 30+years uses 256 bit AES
+
+
+### 3DES Encryption
+
+3DES (Triple Data Encryption Standard) is a symmetric encryption algorithm that is derived from the original Data Encryption Standard (DES) algorithm. It is a block cipher that operates on blocks of data and uses a combination of symmetric key operations to provide encryption and decryption.
+
+3DES applies the DES algorithm three times to each data block, using a different key for each iteration. The algorithm is structured as follows:
+
+1. Key Generation: Three independent keys, typically of 56 bits each, are generated or derived.
+
+2. Encryption: The data block is divided into smaller blocks, typically 64 bits in size. Each block undergoes the following process:
+   a. The block is encrypted using the first key using the DES algorithm.
+   b. The resulting ciphertext is then decrypted using the second key using the DES algorithm.
+   c. The intermediate result is then encrypted again using the third key using the DES algorithm.
+   d. The final ciphertext is the output of the third encryption.
+
+3. Decryption: The decryption process is the reverse of the encryption process. The ciphertext is decrypted using the third key, then encrypted using the second key, and finally decrypted using the first key.
+
+By applying DES three times in this manner, 3DES provides increased security compared to the original DES algorithm. It effectively uses a key length of 168 bits (56 bits x 3) while retaining compatibility with the existing DES infrastructure.
+
+However, it's important to note that 3DES is now considered relatively weak for modern cryptographic standards due to its key size and computational limitations. It has been largely replaced by more secure and efficient symmetric encryption algorithms such as AES (Advanced Encryption Standard).
 
 ## Asymmetric Encryption
 - Has a public key known to all as well as a private key, ie. different key decrypts than encrypts.
