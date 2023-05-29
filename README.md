@@ -122,7 +122,7 @@ A website must have an SSL/TLS certificate for their web server/domain name to u
 
 Both the client and server are now using HTTPS (SSL/TLS + HTTP) for their communication. Web browsers validate this with a lock icon in the browser address bar. HTTPS functions over Port 443.
 
-![](https://thumbs.dreamstime.com/b/internet-security-concept-ssl-https-lock-symbol-computer-browser-laptop-screen-151635340.jpg)
+![](https://www.markbrinker.com/wp-content/uploads/https_720.jpg)
 
 Once you leave the website, those keys are discarded. On your next visit, a new handshake is negotiated, and a new set of keys are generated.
 
