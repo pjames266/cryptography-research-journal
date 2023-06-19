@@ -101,6 +101,7 @@ However, it's important to note that 3DES is now considered relatively weak for 
   - The R values calculated by each user is sent to the other
   - Raising this received value to the power of their own x creates the same shared key as (B^y mod(M))^x = (B^x mod(M))^y = **B^xy mod(M)** <- shared key
   - Secret shared key used for Symmetric Encryption
+  
   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Public_key_shared_secret.svg/375px-Public_key_shared_secret.svg.png)
 
 
