@@ -32,12 +32,5 @@ def box_encrypt(input):
 
 
 
-if __name__ == '__main__':
 
-    string = "This technique doesn't use a key so it is kinda bad, oh well"
-    print("Input: " + string)
-    encrypted = box_encrypt(string)
-    print("encrypted: " + encrypted)
-    decrypted = box_encrypt(encrypted)
-    print("decrypted: " + decrypted)
     

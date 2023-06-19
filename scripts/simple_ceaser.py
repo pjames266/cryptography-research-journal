@@ -40,15 +40,4 @@ def decrypt_ceaser(input, offset):
     return decrypted
 
 
-if __name__ == '__main__':
-
-    string = "James is good at programming and didn't make mistakes"
-    key = random.randint(0,56)
-
-    print("Key: " + str(key))
-    print("Input: " + string)
-    encrypted = encrypt_ceaser(string, key)
-    print("encrypted: " + encrypted)
-    decrypted = decrypt_ceaser(encrypted, key)
-    print("decrypted: " + decrypted)
     
