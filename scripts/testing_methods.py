@@ -5,7 +5,7 @@ import random
 if __name__ == '__main__':
 
     string = "James is good at programming and didn't make mistakes"
-    key = random.randint(0,56)
+    key = random.randint(0,56) #Can replace for a specific key
 
     print("Key: " + str(key))
     
