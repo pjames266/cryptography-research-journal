@@ -90,20 +90,38 @@ However, it's important to note that 3DES is now considered relatively weak for 
 ### RSA Algorithm (Rivest, Shamir, Adleman)
   - Currently used with private and public keys were public keys are the product of 2 large prime private keys 
   - Knowing a public key cannot tell you the private key, numbers are too large and there are too many other factors, would take millions of years with the best methods of factoring.
-  - used by HTTPS and SSH
-  - When data is sent it is encrypted with their public key so only they can decrypt it  
+  - used by HTTPS and SSH (through SSL)
+  - When data is sent it is encrypted with the recipients public key so only the recipient can decrypt it with their private key.
+  - RSA is commonly used in the "handshake" process when initial contact is made between 2 machines.
+
+RSA is currently being fazed out of many standards as the rise of quantum computers will be able to crack this encryption method much easier than computers today.
 
 ### Diffie-Hellman Key Exchange
   - Works using Mathmatical one way functions
   - B^x Mod(M) = R
   - x is kept as some secret key for each user
-  - B and M are constant between them
+  - B and M are constant between them. ***M must be prime***.
+  - In practice numbers of at least 2048 bit are picked (617 digits)
   - The R values calculated by each user is sent to the other
-  - Raising this received value to the power of their own x creates the same shared key as (B^y mod(M))^x = (B^x mod(M))^y = **B^xy mod(M)** <- shared key
+  - Raising this received value to the power of their own x, all modded by M creates the same shared key
+  - (B^y mod(M))^x = (B^x mod(M))^y = **B^xy mod(M)** <- shared key
   - Secret shared key used for Symmetric Encryption
+  - It takes much more computational power to reverse this to find keys even with the knowledge of the remainders than it takes to run these functions.
   
   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Public_key_shared_secret.svg/375px-Public_key_shared_secret.svg.png)
 
+### Elliptical Curve Cryptography (ECC)
+ECC is apparently one of the most powerful and least understood algorithms (I guess that makes sense). 
+
+
+An elliptic curve is the set of points that satisfy a specific mathematical equation. The equation for an elliptic curve looks something like this:
+
+y2 = x3 + ax + b
+
+That graphs to something that looks a bit like the Lululemon logo tipped on its side:
+![](https://blog.cloudflare.com/content/images/image00.png)
+
+[Resource](https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/)
 
 ## SSL/TLS Protocols
 
@@ -129,3 +147,19 @@ Once you leave the website, those keys are discarded. On your next visit, a new 
 
 Depending on the version of TLS/SSL different symmetric and asymmetric algorithms can be used. Some TLS versions can use RSA for its key exchange and handshake while other versions use Diffie-Hellman. Versions of TLS also use AES or 3DES for its symmetric encryption bulk data transfers.
 
+## Encryption Keys
+A question I had while researching about the different encryption techniques and the keys they each use was how the keys themselves are securely stored. Also how most local files were encrypted when stored.
+
+### Hashing
+Takes an input of some arbitrary length and hashes it into an output of fixed length. Common data type used when working with certain data (passwords, ...). Hashing is collision free so no two different inputs will be mapped to the same output. 
+
+![](https://www.tutorialspoint.com/cryptography/images/hash_functions.jpg)
+
+#### *KEY* TAKEAWAYS
+- Hash functions are mathematical functions that transform or "map" a given set of data into a bit string of fixed size, also known as the "hash value."
+- Hash functions are used in cryptography and have variable levels of complexity and difficulty.
+- Hash functions are used for cryptocurrency, password security, and message security.
+
+Cryptographic hash functions add security features to typical hash functions, making it more difficult to detect the contents of a message or information about recipients and senders. Often hashing functions go through multiple cycles to add to the stored security. Secure Hash Function (SHA) is an algorithm developed by NIST with SHA-3 being the most recent version based on the Keccak algorithm.
+
+### Key Management Systems

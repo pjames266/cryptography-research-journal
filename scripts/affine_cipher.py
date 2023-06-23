@@ -7,7 +7,7 @@ class Affine:
   
       while (a*b)%c != 1:
         b += 1
-        if b > c ** 2:
+        if b > c:
            print("ERROR: Pick key not co-factor of 128")
            break
 
@@ -27,8 +27,9 @@ class Affine:
    def decrypt(self, string):
       return "".join(map(self.decryptChar, string))
 
+if __name__ == "__main__":
+    affine = Affine(7567, 2)
+    encrypted = affine.encrypt("Bears, Beets, Battlestar GalacticA!!")
+    print(encrypted)
+    print(affine.decrypt("`m10?▬b`mmN?▬b`1NNVm?N10b+1V1ON)OQqq"))
 
-affine = Affine(93874290875, 12)
-encrypted = affine.encrypt('Affine Cipher')
-print(affine.encrypt('Affine Cipher'))
-print(affine.decrypt(encrypted))
